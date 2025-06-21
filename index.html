@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IG Photo Feed bon Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .pointer { cursor:pointer; }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Navegador -->
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                    <i class="bi bi-instagram"></i>
+                    <span class="fw-bold">Instagram</span>
+                </a>
+                <div class="d-flex align-items-center gap-2 ms-auto">
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createPostModal">
+                        Create a new post
+                    </button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-gear"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Accessibility</a></li>
+                            <li><a class="dropdown-item" href="#">Privacy & Data</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="#">Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Iconos tipo de grid/feed -->
+    <div class="container text-center my-3">
+        <div class="d-flex justify-content-center gap-2">
+            <!-- Los botones ahora cambian la vista en la misma página -->
+            <button id="btnGrid" class="btn pointer icon-btn border-bottom-0""><i id="iconGrid" class="bi bi-grid-3x3"></i></button>
+            <button id="btnFeed" class="btn pointer icon-btn border-bottom-0""><i id="iconFeed" class="bi bi-square-fill"></i></button>
+        </div>
+    </div>
+
+    <!-- Feed (posts uno debajo de otro) -->
+    <div id="feedView" class="container" style="width: 450px">
+        <!-- Post 1 -->
+        <div class="border rounded mt-2 mb-3 bg-white">
+            <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                <p class="fs-5 fw-bold mb-0">My Crazy dog Spark!</p>
+                <span class="text-muted small align-self-start">08/26</span>
+            </div>
+            <div class="ratio" style="--bs-aspect-ratio: 80%;">
+                <img src="https://picsum.photos/600/350?random=1" alt="Imagen Random" class="img-fluid w-100" />
+            </div>
+            <div class="px-3 pb-2">
+                <p class="mb-0"><strong>204 Likes</strong></p>
+                <p class="mb-0 text-muted small">This is an example of a very good photo that you can post on instagram</p>
+            </div>
+        </div>
+        <!-- Post 2 -->
+        <div class="border rounded mt-2 mb-3 bg-white">
+            <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                <p class="fs-5 fw-bold mb-0 align-items-center">The greatness of Croatia</p>
+                <span class="text-muted small align-self-start">04/09</span>
+            </div>
+            <div class="ratio" style="--bs-aspect-ratio: 80%;">
+                <img src="https://picsum.photos/600/350?random=2" alt="Croatia" class="img-fluid w-100" />
+            </div>
+            <div class="px-3 pb-2">
+                <p class="mb-0"><strong>26985 Likes</strong></p>
+                <p class="mb-0 text-muted small">This is an example of a very good photo that you can post on instagram</p>
+            </div>
+        </div>
+        <!-- Post 3 -->
+        <div class="border rounded mt-2 mb-3 bg-white">
+            <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                <p class="fs-5 fw-bold mb-0">Amazing GOAL by Cristiano!</p>
+                <span class="text-muted small align-self-start">06/10</span>
+            </div>
+            <div class="ratio" style="--bs-aspect-ratio: 80%;">
+                <img src="https://picsum.photos/600/350?random=3" alt="Cristiano" class="img-fluid w-100" />
+            </div>
+            <div class="px-3 pb-2">
+                <p class="mb-0"><strong>204 Likes</strong></p>
+                <p class="mb-0 text-muted small">This is an example of a very good photo that you can post on instagram</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid (galería tipo Instagram) -->
+    <div id="gridView" class="container d-none">
+        <div class="row g-2">
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="ratio ratio-1x1">
+                    <img src="https://picsum.photos/600/600?random=1" class="w-100 h-100 object-fit-cover" alt="Grid1">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="ratio ratio-1x1">
+                    <img src="https://picsum.photos/600/600?random=2" class="w-100 h-100 object-fit-cover" alt="Grid2">
+                </div>    
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="ratio ratio-1x1">
+                    <img src="https://picsum.photos/600/600?random=3" class="w-100 h-100 object-fit-cover" alt="Grid3">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="ratio ratio-1x1">
+                    <img src="https://picsum.photos/600/600?random=4" class="w-100 h-100 object-fit-cover" alt="Grid4">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="ratio ratio-1x1">
+                    <img src="https://picsum.photos/600/600?random=5" class="w-100 h-100 object-fit-cover" alt="Grid5">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="ratio ratio-1x1">
+                    <img src="https://picsum.photos/600/600?random=6" class="w-100 h-100 object-fit-cover" alt="Grid6">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="ratio ratio-1x1">
+                    <img src="https://picsum.photos/600/600?random=7" class="w-100 h-100 object-fit-cover" alt="Grid7">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="ratio ratio-1x1">
+                    <img src="https://picsum.photos/600/600?random=8" class="w-100 h-100 object-fit-cover" alt="Grid8">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="ratio ratio-1x1">
+                    <img src="https://picsum.photos/600/600?random=9" class="w-100 h-100 object-fit-cover" alt="Grid9">
+                </div>
+            </div>                                    
+        </div>
+    </div>
+
+    <!-- Modal para crear nuevo post -->
+    <div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="createPostModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createPostModalLabel">Create a new post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="caption" class="form-label">Caption:</label>
+                            <textarea class="form-control" id="caption" placeholder="Add the caption of your post here"></textarea>
+                        </div>
+                        <div class="d-flex gap-2 mb-3">
+                            <button type="button" class="btn btn-outline-dark"><i class="bi bi-camera-fill"></i></button>
+                            <button type="button" class="btn btn-outline-dark"><i class="bi-geo-alt-fill"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success">Publish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+    <!-- Script para cambiar icono activo -->
+    <script>
+        const feedView = document.getElementById('feedView');
+        const gridView = document.getElementById('gridView');
+        const btnGrid = document.getElementById('btnGrid');
+        const btnFeed = document.getElementById('btnFeed');
+        const iconGrid = document.getElementById('iconGrid');
+        const iconFeed = document.getElementById('iconFeed');
+
+    // Función para actualizar colores
+        function activarIcono(modo) {
+            // Primero, quita bordes de ambos botones
+            btnGrid.classList.remove('border', 'border-bottom', 'border-top', 'border-start', 'border-end', 'border-light', 'border-3');
+            btnFeed.classList.remove('border', 'border-bottom', 'border-top', 'border-start', 'border-end', 'border-light', 'border-3');
+            
+            if (modo === "grid") {
+            iconGrid.classList.add('text-primary');
+            iconFeed.classList.remove('text-primary');
+            btnGrid.classList.add('border-top', 'border-start', 'border-end', 'border-light', 'border-3');
+            } else {
+            iconFeed.classList.add('text-primary');
+            iconGrid.classList.remove('text-primary');
+            btnFeed.classList.add('border-top','border-start','border-end','border-light','border-3');
+            }
+        }
+
+    // Al cambiar de vista, también cambia el color del icono
+        btnGrid.onclick = function() {
+            feedView.classList.add('d-none');
+            gridView.classList.remove('d-none');
+            activarIcono('grid');
+        };
+        btnFeed.onclick = function() {
+            gridView.classList.add('d-none');
+            feedView.classList.remove('d-none');
+            activarIcono('feed');
+        };
+
+    // Por defecto activa feed al cargar
+    activarIcono('feed');
+    </script>
+</body>
+</html>
+</body>
+</html>
